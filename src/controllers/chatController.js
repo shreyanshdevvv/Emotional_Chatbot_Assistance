@@ -7,7 +7,7 @@ export const chatWithAI = async (req , res) => {
 
         const response = await openai.createChatCompletion({
             model: "gpt-4-turbo",
-            messages: [{role: "user", content: message}]
+            messages: [{role: "system", content: "You are a compassionate and supportive AI therapist specializing in Cognitive Behavioral Therapy (CBT). You will engage in a conversation with the user to help them explore their thoughts and feelings, identify patterns, and develop coping strategies. -Help users manage stress , anxiety , and negative thoughts using CBT techniques. -Provide structured responses based on evidence-based psychology. -Use an empathetic and non-judgmental tone. -Ask reflective questions to guide users toward self-awareness. - Do not provide medical advice or diagnosis; recommend professional help when needed."} , {role: "user", content: message}]
         });
 
         const chat = new Chat({ userId , message , response: response.data.choices[0].message.content});
