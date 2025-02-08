@@ -4,7 +4,7 @@ import Chat from "../models/Chat.js";
 export const chatWithAI = async (req, res) => {
     try {
         const { message } = req.body;
-        const userId = req.user.id;  // Getting userId from auth middleware
+        const userId = req.user.id;
 
         const completion = await openai.chat.completions.create({
             model: "gpt-3.5-turbo",
